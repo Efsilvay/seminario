@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let a of allTours">
+            <div class="card">
+                <img src="assets/{{a.imagen}}.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{a.titulo}}</h5>
+                    <p class="card-text">Fecha: {{a.fecha}} {{a.detalle}}</p>
+                    <h6 class="card-text">Precio por adulto desde ${{a.precio | number}}</h6>
+                    <div class="rowCard">
+                        <div>
+                            <a (click)="verDetalle(a.id)" class="btn btn-warning">Ver
+                                Tour</a>
+                        </div>
+                        <!--<div>
+                            <a (click)="guardarReserva(a.titulo, a.imagen, a.detalle, a.precio, a.fecha)"
+                            class="btn btn-primary">Comprar</a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

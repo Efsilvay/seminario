@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+            <div class="card">
+                <img src="assets/{{item.imagen}}.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.titulo}}</h5>
+                    <p class="card-text">Fecha del tour: {{item.fecha}} {{item.detalle}} Cantidad: 
+                        <select (change)="cambiarCantidad($event)">
+                            <option [value]="1">1</option>
+                            <option [value]="2">2</option>
+                            <option [value]="3">3</option>
+                        </select> precio: ${{item.precio | number}} <a (click)="guardarReserva(item.titulo, item.imagen, item.detalle, item.precio, item.fecha)"
+                        class="btn btn-primary">Comprar</a></p>
+                </div>
+                <img src="assets/adicionalesTour.PNG" width="705px" alt="...">
+            </div>
+    </div>
+</div>

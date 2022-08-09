@@ -1,0 +1,57 @@
+.container {
+    padding: 5%;
+}
+
+body {
+    padding-top: 50px;
+}
+
+#divTotal {
+    background-color: #6489d8;
+    width: 100%;
+    color: white;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+}
+
+#divItems {
+    background-color: #385dad;
+    width: 100%;
+    color: white;
+    text-align: center;
+    border-radius: 5px 0 0 5px;
+}
+
+.affix {
+    right: 0px;
+}
+
+.affix-top {
+    right: 0px;
+    position: fixed;
+}
+
+.total {
+    text-align: right;
+}
+
+.cerrar {
+    border: 0 !important;
+    background-color: white;
+}
+
+.col-md-5 {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 1080px;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.pull-right {
+    /* float: right; */
+    position: absolute;
+    margin-left: 28%;
+}

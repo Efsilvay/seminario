@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+            <div class="card">
+                <img src="assets/{{item.imagen}}.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.titulo}}</h5>
+                    <p class="card-text">Detalles: {{item.detalle}}</p>
+                    <h6 class="card-text">valor reserva: ${{item.precio | number}}</h6>
+                    <div class="rowCard">
+                        <div>
+                            <a (click)="guardarReserva(item.titulo, item.imagen,item.detalle, item.precio)"
+                            class="btn btn-primary">Reservar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

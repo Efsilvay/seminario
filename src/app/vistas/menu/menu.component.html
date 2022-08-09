@@ -1,0 +1,34 @@
+<div class="container-carrusel">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/slider.jpg" class="d-block w-100" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let a of filterDatos">
+      <div class="card">
+        <img src="assets/{{a.imagen}}.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{a.titulo}}</h5>
+          <p class="card-text">{{a.detalle}}</p>
+          <h6 class="card-text">${{a.precio}}</h6>
+          <div class="rowCard">
+            <div>
+                <a (click)="verDetalle(a.id)" class="btn btn-warning">Ver
+                    detalle</a>
+            </div>
+            <div>
+                <a (click)="guardarReserva(a.titulo, a.imagen,a.detalle, a.precio)"
+                class="btn btn-primary">Reservar</a>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

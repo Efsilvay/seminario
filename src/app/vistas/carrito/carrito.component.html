@@ -1,0 +1,184 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+            <div id="first">
+                <div class="myform form ">
+                    <div class="logo mb-3">
+                        <div class="col-md-12 text-center">
+                            <h1>Reservas</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div id="divItems" class="panel-heading">
+                                    <h3 class="panel-title">Items</h3>
+                                </div>
+                                <div class="row" *ngFor="let a of allDatos">
+                                    <div class="card mb-3" style="max-width: 540px;">
+                                        <div class="row justify-content-end">
+                                            <div class="col-4">
+                                                <button class="pull-right clickable close-icon cerrar"
+                                                    (click)="eliminar(a.id)" data-effect="fadeOut"><i
+                                                        class="fa fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="row g-0" *ngIf="a.depto">
+                                            <div class="col-md-4">
+                                                <img src="assets/{{a.imagen}}.jpg" class="card-img-top" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{a.titulo}}</h5>
+                                                    <p class="card-text">{{a.detalle}}</p>
+                                                    <h6 class="card-text">Valor reserva ${{a.valor | number}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row g-0" *ngIf="a.tour">
+                                            <div class="col-md-4">
+                                                <img src="assets/{{a.imagen}}.jpg" class="card-img-top" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{a.titulo}}</h5>
+                                                    <div class="card-text">Fecha: {{a.fecha}} {{a.detalle}}</div>
+                                                    <div class="card-text">Valor Tour ${{a.valor | number}} Cantidad:
+                                                        {{a.cantidad}}</div>
+                                                    <h6 class="card-text">Total items ${{a.valor*a.cantidad | number}}
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div id="divTotal" class="panel-heading">
+                                    <h3 class="panel-title">Datos de Compra</h3>
+                                </div>
+                                <div *ngIf="!logeado">
+                                    <div class="card">
+                                        <form #form1="ngForm" novalidate>
+                                            <div class="row mb-4">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Nombre</label>
+                                                        <input type="text" (keyup)="validaFormulario(form1, 'nombre')"
+                                                            class="form-control" placeholder="Ingresar Nombre"
+                                                            name="nombre" #nombre="ngModel"
+                                                            [(ngModel)]="usuario.nombre">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Apellido</label>
+                                                        <input type="text" (keyup)="validaFormulario(form1, 'apellido')"
+                                                            class="form-control" placeholder="Ingresar Apellido"
+                                                            name="apellido" #apellido="ngModel"
+                                                            [(ngModel)]="usuario.apellido">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Rut</label>
+                                                        <input type="number" (keyup)="validaFormulario(form1, 'rut')"
+                                                            class="form-control" placeholder="Ingresar Rut" name="rut"
+                                                            #rut="ngModel" [(ngModel)]="usuario.rut">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="email" (keyup)="validaFormulario(form1, 'email')"
+                                                            class="form-control" placeholder="Ej: correo@dominio.cl"
+                                                            name="email" #email="ngModel" [(ngModel)]="usuario.email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Telefono</label>
+                                                        <input type="phone"
+                                                            (keyup)="validaFormulario(form1, 'telefono')"
+                                                            class="form-control" placeholder="Ingresar Telefono"
+                                                            name="telefono" #telefono="ngModel"
+                                                            [(ngModel)]="usuario.telefono">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label>Celular</label>
+                                                        <input type="phone" (keyup)="validaFormulario(form1, 'celular')"
+                                                            class="form-control" placeholder="Ingresar Celular"
+                                                            name="celular" #celular="ngModel"
+                                                            [(ngModel)]="usuario.celular">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+                                    <h4 class="total">Cantidad departamentos: {{cantDepto}}</h4>
+                                    <h4 class="total">Cantidad tours: {{cantTour}}</h4>
+                                    <h2 class="total">Total a pagar: ${{total | number}}</h2>
+                                </div>
+                                <div *ngIf="logeado" class="text-center">
+                                    <button (click)="downloadAsPDF();" class="btn btn-primary">Pagar <span
+                                            class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                                <div *ngIf="!logeado" class="text-center">
+                                    <button (click)="downloadAsPDF();"
+                                        class="btn btn-block mybtn {{ this.classBoton }} btn-primary tx-tfm">Pagar <span
+                                            class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" id="pdfTable" #pdfTable style="display: none;">
+    <div class="row">
+        <div class="col-6">
+            <div id="divItems" class="panel-heading">
+                <h3 class="panel-title">Comprobante de Compra</h3>
+            </div>
+            <hr>
+            <div class="row" *ngFor="let a of allDatos">
+
+                <div class="card mb-3" style="max-width: 540px;">
+
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h6 class="card-title">{{a.id}}) {{a.titulo}} - precio unitario: ${{a.valor | number}}
+                                    cantidad: {{a.cantidad}} total: {{a.valor*a.cantidad | number}}</h6>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div id="divTotal" class="panel-heading">
+                <hr>
+                <h5 class="panel-title">Total ${{total | number}}</h5>
+                <h5 class="panel-title">Fecha de Compra: {{todayDate}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

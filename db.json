@@ -1,0 +1,167 @@
+{
+  "usuarios": [
+    {
+      "rut": 156038822,
+      "nombre": "Emilio",
+      "apellido": "Silva",
+      "direccion": "Calle 2",
+      "comuna": "Chiguayante",
+      "ciudad": "Concepcion",
+      "telefono": "964 96 66 78",
+      "celular": "964966678",
+      "email": "efsilvay@gmail.com",
+      "password": "12345",
+      "rol": "2",
+      "id": 1
+    },
+    {
+      "rut": 156038822,
+      "nombre": "Emilio",
+      "apellido": "Silva",
+      "direccion": "Calle 2",
+      "comuna": "Chiguayante",
+      "ciudad": "Concepcion",
+      "telefono": "964 96 66 78",
+      "celular": "964966678",
+      "email": "miloshka@gmail.com",
+      "password": "12345",
+      "rol": "1",
+      "id": 2
+    }
+  ],
+  "departamentos": [
+    {
+      "titulo": "Edificio Step",
+      "imagen": "depto1",
+      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+      "precio": 10000,
+      "id": 1
+    },
+    {
+      "titulo": "Alto Polkura",
+      "imagen": "depto2",
+      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+      "precio": 10000,
+      "id": 2
+    },
+    {
+      "titulo": "Hoy Eluchans",
+      "imagen": "depto3",
+      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+      "precio": 10000,
+      "id": 3
+    },
+    {
+      "titulo": "Edificio Step",
+      "imagen": "depto1",
+      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+      "precio": 10000,
+      "id": 4
+    },
+    {
+      "titulo": "Alto Polkura",
+      "imagen": "depto2",
+      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+      "precio": 10000,
+      "id": 5
+    },
+    {
+      "titulo": "Hoy Eluchans",
+      "imagen": "depto3",
+      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+      "precio": 10000,
+      "id": 6
+    }
+  ],
+  "tours": [
+    {
+      "titulo": "Recorrido por el Valle de Elqui",
+      "imagen": "elqui",
+      "detalle": "Duración: 8 Hrs.",
+      "precio": 70188,
+      "fecha": "30-05-2022",
+      "dias": 1,
+      "id": 1
+    },
+    {
+      "titulo": "Geysers del Tatio",
+      "imagen": "geyser",
+      "detalle": "Duración: 7 Hrs.",
+      "precio": 33151,
+      "fecha": "30-05-2022",
+      "dias": 1,
+      "id": 2
+    },
+    {
+      "titulo": "Termas Geometricas",
+      "imagen": "geometricas",
+      "detalle": "Duración: 7 Hrs.",
+      "precio": 84501,
+      "fecha": "30-05-2022",
+      "dias": 1,
+      "id": 3
+    }
+  ],
+  "reservas": [
+    {
+      "depto": false,
+      "tour": true,
+      "titulo": "Recorrido por el Valle de Elqui",
+      "imagen": "elqui",
+      "detalle": "Duración: 8 Hrs.",
+      "valor": 70188,
+      "fecha": "30-05-2022",
+      "cantidad": 1,
+      "dias": 1,
+      "id": 1
+    },
+    {
+      "depto": false,
+      "tour": true,
+      "titulo": "Termas Geometricas",
+      "imagen": "geometricas",
+      "detalle": "Duración: 7 Hrs.",
+      "valor": 84501,
+      "fecha": "30-05-2022",
+      "cantidad": "3",
+      "dias": 1,
+      "id": 2
+    }
+  ],
+  "ventas": [
+    {
+      "rut": 156038822,
+      "nombre": "Emilio",
+      "apellido": "Silva",
+      "telefono": "964 96 66 78",
+      "celular": "964966678",
+      "email": "efsilvay@gmail.com",
+      "fechaVenta": "11-05-2022",
+      "pagado": 70188,
+      "items": [{
+        "depto": false,
+        "tour": true,
+        "titulo": "Recorrido por el Valle de Elqui",
+        "imagen": "elqui",
+        "detalle": "Duración: 8 Hrs.",
+        "valor": 70188,
+        "fecha": "30-05-2022",
+        "cantidad": 1,
+        "dias": 1,
+        "id": 1
+      },{
+        "depto": false,
+        "tour": true,
+        "titulo": "Recorrido 2",
+        "imagen": "elqui",
+        "detalle": "Duración: 8 Hrs.",
+        "valor": 70188,
+        "fecha": "30-05-2022",
+        "cantidad": 1,
+        "dias": 1,
+        "id": 2
+      }],
+      "id": 1
+    }
+  ]
+}

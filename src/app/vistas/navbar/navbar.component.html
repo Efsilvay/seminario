@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="assets/logo.jpg" alt="" width="70"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/"><i class="fa fa-home"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/departamentos"><i class="fa fa-building"></i> Arriendos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tours"><i class="fa fa-plane"></i> Tours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/servicios"><i class="fa fa-taxi"></i> Servicios</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <!--<input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">-->
+          <a routerLink="/carrito" class="btn btn-outline-success" type="submit" style="margin-right: 5px;"><i class="fa fa-shopping-cart"></i> Reserva</a> 
+          <a *ngIf="!logeado" routerLink="/login" class="btn btn-outline-success" type="submit" style="margin-right: 5px;"><i class="fa fa-user"></i> Ingresar</a>
+          <a *ngIf="!logeado" routerLink="/registro" class="btn btn-outline-success" type="submit"><i class="fa fa-user"></i> Registrarse</a>
+          <a *ngIf="admin " routerLink="/admin" class="btn btn-outline-success" type="submit" style="margin-right: 5px;"><i class="fa fa-gear"></i> Admin</a>
+          <button *ngIf="logeado" (click)="logout()" class="btn btn-outline-success" type="submit"><i class="fa fa-user"></i> Salir</button>
+        </form>
+      </div>
+    </div>
+  </nav>
