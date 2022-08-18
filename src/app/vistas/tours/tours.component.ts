@@ -21,6 +21,7 @@ export class ToursComponent implements OnInit {
     valor: 0,
     fecha: "",
     dias: 1,
+    tipo: "Tour"
   }
 
   constructor(private sS:ServiceService, private router: Router) { }
@@ -48,7 +49,7 @@ export class ToursComponent implements OnInit {
     this.tour.valor = valor;
     this.tour.fecha = fecha;
     console.log('valor a ingresar: ',this.tour);
-    return this.sS.agregaReserva(this.tour)
+    return this.sS.agregaCarrito(this.tour)
     .subscribe(
       (datos: any) => {
         console.log('usuario ingresado con éxito', 'Confirmación');

@@ -7,7 +7,7 @@
       "direccion": "Calle 2",
       "comuna": "Chiguayante",
       "ciudad": "Concepcion",
-      "telefono": "964 96 66 78",
+      "telefono": "964966678",
       "celular": "964966678",
       "email": "efsilvay@gmail.com",
       "password": "12345",
@@ -21,12 +21,39 @@
       "direccion": "Calle 2",
       "comuna": "Chiguayante",
       "ciudad": "Concepcion",
-      "telefono": "964 96 66 78",
+      "telefono": "964966678",
       "celular": "964966678",
       "email": "miloshka@gmail.com",
       "password": "12345",
       "rol": "1",
       "id": 2
+    },
+    {
+      "rut": 139536606,
+      "nombre": "Ruben",
+      "apellido": "Osses Ortiz",
+      "direccion": "Mirador del rio pasaje 3 casa 457",
+      "comuna": "chiguayante",
+      "ciudad": "concepcion",
+      "telefono": "962265210",
+      "celular": "962265210",
+      "email": "ruben.osses1980@gmail.com",
+      "password": "123456",
+      "rol": "1",
+      "id": 3
+    },
+    {
+      "rut": 139536606,
+      "nombre": "Ruben",
+      "apellido": "Osses Ortiz",
+      "direccion": "Mirador del rio pasaje 3 casa 457",
+      "comuna": "talcahuano",
+      "ciudad": "concepcion",
+      "telefono": "962265210",
+      "celular": "962265210",
+      "email": "ruben.osses@icloud.com",
+      "password": "123456",
+      "id": 4
     }
   ],
   "departamentos": [
@@ -34,42 +61,42 @@
       "titulo": "Edificio Step",
       "imagen": "depto1",
       "detalle": "Piso 6 - 2 Dorm - 1 Baño",
-      "precio": 10000,
+      "precio": 20000,
       "id": 1
     },
     {
       "titulo": "Alto Polkura",
       "imagen": "depto2",
-      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
-      "precio": 10000,
+      "detalle": "Piso 8 - 2 Dorm - 1 Baño",
+      "precio": 25000,
       "id": 2
     },
     {
       "titulo": "Hoy Eluchans",
       "imagen": "depto3",
-      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
-      "precio": 10000,
+      "detalle": "Piso 12 - 3 Dorm - 2 Baño",
+      "precio": 40000,
       "id": 3
     },
     {
-      "titulo": "Edificio Step",
-      "imagen": "depto1",
-      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
-      "precio": 10000,
+      "titulo": "Edificio Star",
+      "imagen": "depto4",
+      "detalle": "Piso 4 - 2 Dorm - 1 Baño",
+      "precio": 35000,
       "id": 4
     },
     {
-      "titulo": "Alto Polkura",
-      "imagen": "depto2",
-      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
-      "precio": 10000,
+      "titulo": "Alto Egaña",
+      "imagen": "depto5",
+      "detalle": "Piso 15 - 3 Dorm - 1 Baño",
+      "precio": 30000,
       "id": 5
     },
     {
-      "titulo": "Hoy Eluchans",
-      "imagen": "depto3",
-      "detalle": "Piso 6 - 2 Dorm - 1 Baño",
-      "precio": 10000,
+      "titulo": "Los Alerces",
+      "imagen": "depto6",
+      "detalle": "Piso 8 - 3 Dorm - 2 Baño",
+      "precio": 45000,
       "id": 6
     }
   ],
@@ -102,7 +129,7 @@
       "id": 3
     }
   ],
-  "reservas": [
+  "carrito": [
     {
       "depto": false,
       "tour": true,
@@ -113,19 +140,8 @@
       "fecha": "30-05-2022",
       "cantidad": 1,
       "dias": 1,
+      "tipo": "Tour",
       "id": 1
-    },
-    {
-      "depto": false,
-      "tour": true,
-      "titulo": "Termas Geometricas",
-      "imagen": "geometricas",
-      "detalle": "Duración: 7 Hrs.",
-      "valor": 84501,
-      "fecha": "30-05-2022",
-      "cantidad": "3",
-      "dias": 1,
-      "id": 2
     }
   ],
   "ventas": [
@@ -138,29 +154,32 @@
       "email": "efsilvay@gmail.com",
       "fechaVenta": "11-05-2022",
       "pagado": 70188,
-      "items": [{
-        "depto": false,
-        "tour": true,
-        "titulo": "Recorrido por el Valle de Elqui",
-        "imagen": "elqui",
-        "detalle": "Duración: 8 Hrs.",
-        "valor": 70188,
-        "fecha": "30-05-2022",
-        "cantidad": 1,
-        "dias": 1,
-        "id": 1
-      },{
-        "depto": false,
-        "tour": true,
-        "titulo": "Recorrido 2",
-        "imagen": "elqui",
-        "detalle": "Duración: 8 Hrs.",
-        "valor": 70188,
-        "fecha": "30-05-2022",
-        "cantidad": 1,
-        "dias": 1,
-        "id": 2
-      }],
+      "items": [
+        {
+          "depto": false,
+          "tour": true,
+          "titulo": "Recorrido por el Valle de Elqui",
+          "imagen": "elqui",
+          "detalle": "Duración: 8 Hrs.",
+          "valor": 70188,
+          "fecha": "30-05-2022",
+          "cantidad": 1,
+          "dias": 1,
+          "id": 1
+        },
+        {
+          "depto": false,
+          "tour": true,
+          "titulo": "Recorrido 2",
+          "imagen": "elqui",
+          "detalle": "Duración: 8 Hrs.",
+          "valor": 70188,
+          "fecha": "30-05-2022",
+          "cantidad": 1,
+          "dias": 1,
+          "id": 2
+        }
+      ],
       "id": 1
     }
   ]

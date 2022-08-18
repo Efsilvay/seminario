@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+       <div class="col mx-auto">
+          <div>
+             <div class="myform form ">
+                <div class="logo mb-3">
+                   <div class="col-md-12 text-center">
+                      <h1>Nuevo Tour</h1>
+                   </div>
+                </div>
+                <form #form1="ngForm" novalidate>
+                   <div class="row mb-4">
+                      <div class="col">
+                         <div class="form-group">
+                            <label>Titulo</label>
+                            <input type="text" (keyup)="validaFormulario(form1, 'titulo')" class="form-control"
+                               placeholder="Ingresar titulo" name="titulo" #titulo="ngModel"
+                               [(ngModel)]="tour.titulo">
+                         </div>
+                      </div>
+                      <div class="col">
+                         <div class="form-group">
+                            <label>Imagen</label>
+                            <input type="file" (keyup)="validaFormulario(form1, 'imagen')" class="form-control"
+                              name="imagen" #imagen="ngModel"
+                               [(ngModel)]="tour.imagen">
+                         </div>
+                      </div>
+                   </div>
+                   <div class="row mb-4">
+                      <div class="col">
+                         <div class="form-group">
+                            <label>Detalle</label>
+                            <input type="text" (keyup)="validaFormulario(form1, 'detalle')" class="form-control"
+                               placeholder="Ingresar Detalle" name="detalle" #detalle="ngModel" [(ngModel)]="tour.detalle">
+                         </div>
+                      </div>
+                      <div class="col">
+                         <div class="form-group">
+                            <label>Precio</label>
+                            <input type="number" (keyup)="validaFormulario(form1, 'precio')" class="form-control"
+                               placeholder="Ingresar Precio" name="precio" #precio="ngModel"
+                               [(ngModel)]="tour.precio">
+                         </div>
+                      </div>
+                   </div>
+                   <div class="row mb-4">
+                      <div class="col">
+                         <div class="form-group">
+                            <label>Fecha</label>
+                            <input type="date" (keyup)="validaFormulario(form1, 'fecha')" class="form-control"
+                               placeholder="Ingresar Fecha" name="fecha" #fecha="ngModel"
+                               [(ngModel)]="tour.fecha">
+                         </div>
+                      </div>
+                      <div class="col">
+                         <div class="form-group">
+                            <label>Cantidad de Días</label>
+                            <input type="number" (keyup)="validaFormulario(form1, 'dias')" class="form-control"
+                               placeholder="Ingresar Días" name="dias" #dias="ngModel"
+                               [(ngModel)]="tour.dias">
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-12 text-center mb-3">
+                      <button type="submit" (click)="registrar(form1)"
+                         class="btn btn-block mybtn {{ this.classBoton }} btn-primary tx-tfm">Enviar</button>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>

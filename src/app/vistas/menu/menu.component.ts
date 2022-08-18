@@ -21,6 +21,7 @@ export class MenuComponent implements OnInit {
     detalle: "",
     valor: 0,
     cantidad: 1,
+    tipo: "Departamento"
   }
 
   constructor(private sS:ServiceService, private router: Router) { }
@@ -50,7 +51,7 @@ guardarReserva(titulo:any,imagen:any, detalle:any, valor: any){
   this.departamento.detalle = detalle;
   this.departamento.valor = valor;
   console.log('valor a ingresar: ',this.departamento);
-  return this.sS.agregaReserva(this.departamento)
+  return this.sS.agregaCarrito(this.departamento)
   .subscribe(
     (datos: any) => {
       console.log('usuario ingresado con éxito', 'Confirmación');

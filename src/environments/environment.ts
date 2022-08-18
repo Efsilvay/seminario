@@ -8,7 +8,7 @@ export const environment = {
     usuarios: "http://localhost:3000/usuarios",
     departamentos: "http://localhost:3000/departamentos",
     tours: "http://localhost:3000/tours",
-    reservas: "http://localhost:3000/reservas",
+    carrito: "http://localhost:3000/carrito",
     ventas: "http://localhost:3000/ventas"
   }
 };

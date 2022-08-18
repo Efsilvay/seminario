@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/servicios/service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -17,10 +18,14 @@ export class AdminComponent implements OnInit {
   showTours: boolean = false;
   showCompras: boolean = false;
   showUsuarios: boolean = false;
+  newDepartamento: boolean = false;
+  newtours: boolean = false;
+  newUsuario: boolean = false;
 
-  constructor(private sS: ServiceService) { }
+  constructor(private sS: ServiceService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.mostrarArriendos();
   }
 
   mostrarArriendos() {
@@ -31,6 +36,9 @@ export class AdminComponent implements OnInit {
       this.showTours = false;
       this.showCompras = false;
       this.showUsuarios = false;
+      this.newDepartamento = false;
+      this.newtours = false;
+      this.newUsuario = false;
     });
   }
 
@@ -42,6 +50,9 @@ export class AdminComponent implements OnInit {
       this.showTours = true;
       this.showCompras = false;
       this.showUsuarios = false;
+      this.newDepartamento = false;
+      this.newtours = false;
+      this.newUsuario = false;
     });
   }
 
@@ -53,6 +64,9 @@ export class AdminComponent implements OnInit {
       this.showTours = false;
       this.showCompras = true;
       this.showUsuarios = false;
+      this.newDepartamento = false;
+      this.newtours = false;
+      this.newUsuario = false;
     });
 
   }
@@ -65,6 +79,76 @@ export class AdminComponent implements OnInit {
       this.showTours = false;
       this.showCompras = false;
       this.showUsuarios = true;
+      this.newDepartamento = false;
+      this.newtours = false;
+      this.newUsuario = false;
     });
+  }
+
+  newDepto(){
+    this.newDepartamento = true;
+    this.newtours = false;
+    this.newUsuario = false;
+    this.showArriendos = false;
+    this.showTours = false;
+    this.showCompras = false;
+    this.showUsuarios =false;
+  }
+
+  newTour(){
+    this.newDepartamento = false;
+    this.newtours = true;
+    this.newUsuario = false;
+    this.showArriendos = false;
+    this.showTours = false;
+    this.showCompras = false;
+    this.showUsuarios =false;
+  }
+
+  newUser(){
+    this.newDepartamento = false;
+    this.newtours = false;
+    this.newUsuario = true;
+    this.showArriendos = false;
+    this.showTours = false;
+    this.showCompras = false;
+    this.showUsuarios =false;
+  }
+
+  editarDepto(id: any){
+
+  }
+
+  eliminarDepto(id: any){
+    this.sS.eliminaDepartamento(id).subscribe(() => this.mostrarArriendos());
+    this.toastr.success('Item eliminado con éxito', 'Eliminación');
+  }
+
+  editarTour(id: any){
+
+  }
+
+  eliminarTour(id: any){
+    this.sS.eliminaTour(id).subscribe(() => this.mostrarTours());
+    this.toastr.success('Item eliminado con éxito', 'Eliminación');
+  }
+
+  editarVenta(id: any){
+
+  }
+
+  eliminarVenta(id: any){
+    this.sS.eliminaVenta(id).subscribe(() => this.mostrarCompras());
+    this.toastr.success('Item eliminado con éxito', 'Eliminación');
+    //window.location.reload();
+  }
+
+  editarUsuario(id: any){
+
+  }
+
+  eliminarUsuario(id: any){
+    this.sS.eliminaUsuario(id).subscribe(() => this.mostrarUsuarios());
+    this.toastr.success('Item eliminado con éxito', 'Eliminación');
   }
 }

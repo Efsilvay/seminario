@@ -1,115 +1,176 @@
 <div class="container">
-    <div class="row">
-        <div class="col-2 col-menu">
-          <button (click)="mostrarArriendos()" class="btn btn-outline-success" type="submit"><i class="fa fa-building"></i> Departamentos</button> 
-          <button (click)="mostrarTours()" class="btn btn-outline-success" type="submit" style="margin-top: 5px;"><i class="fa fa-plane"></i> Tours</button>
-          <button (click)="mostrarCompras()" class="btn btn-outline-success" type="submit" style="margin-top: 5px;"><i class="fa fa-shopping-cart"></i> Ventas</button>
-          <button (click)="mostrarUsuarios()" class="btn btn-outline-success" type="submit" style="margin-top: 5px;"><i class="fa fa-user"></i> Usuarios</button>
-        </div>
-        <div class="col-10 col-contenido">
-            <div *ngIf="showArriendos">
-                Lista de Arriendos
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Detalle</th>
-                        <th scope="col">Accion</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let ad of allDeptos">
-                        <th scope="row">{{ad.id}}</th>
-                        <td>{{ad.titulo}}</td>
-                        <td>{{ad.precio}}</td>
-                        <td>{{ad.detalle}}</td>
-                        <td><button class="btn btn-outline-warning"><i class="fa fa-user"></i> Editar</button></td>
-                        <td><button class="btn btn-outline-danger"><i class="fa fa-user"></i> Eliminar</button></td>
-                      </tr>
-                    </tbody>
-                  </table></div>
-            <div *ngIf="showTours">
-                Lista de Tours
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Detalle</th>
-                        <th scope="col">Fecha tour</th>
-                        <th scope="col">Accion</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let at of allTours">
-                        <th scope="row">{{at.id}}</th>
-                        <td>{{at.titulo}}</td>
-                        <td>{{at.precio}}</td>
-                        <td>{{at.detalle}}</td>
-                        <td>{{at.fecha}}</td>
-                        <td><button class="btn btn-outline-warning"><i class="fa fa-user"></i> Editar</button></td>
-                        <td><button class="btn btn-outline-danger"><i class="fa fa-user"></i> Eliminar</button></td>
-                      </tr>
-                    </tbody>
-                  </table></div>
-            <div *ngIf="showCompras">
-                Lista de Ventas
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Fecha Venta</th>
-                        <th scope="col">Items</th>
-                        <th scope="col">Pagado</th>
-                        <th scope="col">Accion</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let ac of allCompras; let i = index">
-                        <th scope="row">{{ac.id}}</th>
-                        <td>{{ac.nombre}}</td>
-                        <td>{{ac.apellido}}</td>
-                        <td>{{ac.email}}</td>
-                        <td>{{ac.fechaVenta}}</td>
-                        <td><app-items></app-items></td>
-                        <td>{{ac.pagado}}</td>
-                        <td><button class="btn btn-outline-warning"><i class="fa fa-user"></i> Editar</button></td>
-                        <td><button class="btn btn-outline-danger"><i class="fa fa-user"></i> Eliminar</button></td>
-                      </tr>
-                    </tbody>
-                  </table></div>
-            <div *ngIf="showUsuarios">
-                Lista de Usuarios
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Rol</th>
-                        <th scope="col">Accion</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let au of allUsers">
-                        <th scope="row">{{au.id}}</th>
-                        <td>{{au.nombre}}</td>
-                        <td>{{au.apellido}}</td>
-                        <td>{{au.email}}</td>
-                        <td>{{au.rol}}</td>
-                        <td><button class="btn btn-outline-warning"><i class="fa fa-user"></i> Editar</button></td>
-                        <td><button class="btn btn-outline-danger"><i class="fa fa-user"></i> Eliminar</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-2 col-menu">
+      <button (click)="mostrarArriendos()" class="btn btn-outline-primary" type="submit"><i class="fa fa-building"></i>
+        Departamentos</button>
+      <button (click)="mostrarTours()" class="btn btn-outline-primary" type="submit" style="margin-top: 5px;"><i
+          class="fa fa-plane"></i> Tours</button>
+      <button (click)="mostrarCompras()" class="btn btn-outline-primary" type="submit" style="margin-top: 5px;"><i
+          class="fa fa-shopping-cart"></i> Ventas</button>
+      <button (click)="mostrarUsuarios()" class="btn btn-outline-primary" type="submit" style="margin-top: 5px;"><i
+          class="fa fa-user"></i> Usuarios</button>
     </div>
+    <div class="col-10 col-contenido">
+      <div *ngIf="showArriendos">
+        <div class="col-md-12 text-center">
+          <h1>Lista de Arriendos</h1>
+       </div>
+        <div class="nuevo">
+          <button (click)="newDepto()" class="btn btn-primary" type="submit"><i class="fa fa-building"></i> Agregar
+            Nuevo</button>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Detalle</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ad of allDeptos">
+              <th scope="row">{{ad.id}}</th>
+              <td>{{ad.titulo}}</td>
+              <td>{{ad.precio}}</td>
+              <td>{{ad.detalle}}</td>
+              <td><button class="btn btn-outline-warning" (click)="editarDepto(ad.id)"><i class="fa fa-user"></i>
+                  Editar</button></td>
+              <td><button class="btn btn-outline-danger" (click)="eliminarDepto(ad.id)"><i class="fa fa-user"></i>
+                  Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="newDepartamento">
+        <app-add-depto></app-add-depto>
+        <div class="col-md-12 ">
+          <div class="form-group">
+             <p class="text-center"><button (click)="mostrarArriendos()" class="btn btn-danger">Volver</button></p>
+          </div>
+       </div>
+      </div>
+      <div *ngIf="showTours">
+        <div class="col-md-12 text-center">
+          <h1>Lista de Tours</h1>
+       </div>
+        <div class="nuevo">
+          <button (click)="newTour()" class="btn btn-primary" type="submit"><i class="fa fa-plane"></i> Agregar
+            Nuevo</button>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Detalle</th>
+              <th scope="col">Fecha Tour</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let at of allTours">
+              <th scope="row">{{at.id}}</th>
+              <td>{{at.titulo}}</td>
+              <td>{{at.precio}}</td>
+              <td>{{at.detalle}}</td>
+              <td>{{at.fecha}}</td>
+              <td><button class="btn btn-outline-warning" (click)="editarTour(at.id)"><i class="fa fa-user"></i>
+                  Editar</button></td>
+              <td><button class="btn btn-outline-danger" (click)="eliminarTour(at.id)"><i class="fa fa-user"></i>
+                  Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="newtours">
+        <app-add-tour></app-add-tour>
+        <div class="col-md-12 ">
+          <div class="form-group">
+             <p class="text-center"><button (click)="mostrarTours()" class="btn btn-danger">Volver</button></p>
+          </div>
+       </div>
+      </div>
+      <div *ngIf="showCompras">
+        <div class="col-md-12 text-center">
+          <h1>Lista de Ventas</h1>
+       </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Email</th>
+              <th scope="col">Fecha Venta</th>
+              <th scope="col">Items</th>
+              <th scope="col">Pagado</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ac of allCompras; let i = index">
+              <th scope="row">{{ac.id}}</th>
+              <td>{{ac.nombre}}</td>
+              <td>{{ac.apellido}}</td>
+              <td>{{ac.email}}</td>
+              <td>{{ac.fechaVenta}}</td>
+              <td>
+                <app-items [items]="ac.items"></app-items>
+              </td>
+              <td>{{ac.pagado}}</td>
+              <td><button class="btn btn-outline-warning" (click)="editarVenta(ac.id)"><i class="fa fa-user"></i>
+                  Editar</button></td>
+              <td><button class="btn btn-outline-danger" (click)="eliminarVenta(ac.id)"><i class="fa fa-user"></i>
+                  Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="showUsuarios">
+        <div class="col-md-12 text-center">
+          <h1>Lista de Usuarios</h1>
+       </div>
+        <div class="nuevo">
+          <button (click)="newUser()" class="btn btn-primary" type="submit"><i class="fa fa-user"></i> Agregar
+            Nuevo</button>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Email</th>
+              <th scope="col">Rol</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let au of allUsers">
+              <th scope="row">{{au.id}}</th>
+              <td>{{au.nombre}}</td>
+              <td>{{au.apellido}}</td>
+              <td>{{au.email}}</td>
+              <td>{{au.rol}}</td>
+              <td><button class="btn btn-outline-warning" (click)="editarUsuario(au.id)"><i class="fa fa-user"></i>
+                  Editar</button></td>
+              <td><button class="btn btn-outline-danger" (click)="eliminarUsuario(au.id)"><i class="fa fa-user"></i>
+                  Eliminar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="newUsuario">
+        <app-add-user></app-add-user>
+        <div class="col-md-12 ">
+          <div class="form-group">
+             <p class="text-center"><button (click)="mostrarUsuarios()" class="btn btn-danger">Volver</button></p>
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
 </div>

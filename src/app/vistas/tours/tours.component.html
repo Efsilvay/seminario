@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{a.titulo}}</h5>
                     <p class="card-text">Fecha: {{a.fecha}} {{a.detalle}}</p>
-                    <h6 class="card-text">Precio por adulto desde ${{a.precio | number}}</h6>
+                    <h6 class="card-text">Precio por persona ${{a.precio | number}}</h6>
                     <div class="rowCard">
                         <div>
                             <a (click)="verDetalle(a.id)" class="btn btn-warning">Ver

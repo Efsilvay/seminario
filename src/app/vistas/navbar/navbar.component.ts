@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/servicios/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
   rol: any = "";
   admin: boolean = false;
 
-  constructor(private ss: ServiceService) { }
+  constructor(private ss: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.valorLocal = localStorage.getItem('token');
@@ -34,6 +35,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     this.logeado = false;
     this.ss.logout();
+    this.router.navigate(['/']);
   }
 
 }

@@ -26,6 +26,9 @@ import { AdminComponent } from './vistas/admin/admin.component';
 import { DepartamentoComponent } from './vistas/departamento/departamento.component';
 import { TourComponent } from './vistas/tour/tour.component';
 import { ItemsComponent } from './vistas/admin/items/items.component';
+import { AddDeptoComponent } from './vistas/admin/add-depto/add-depto.component';
+import { AddTourComponent } from './vistas/admin/add-tour/add-tour.component';
+import { AddUserComponent } from './vistas/admin/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { ItemsComponent } from './vistas/admin/items/items.component';
     AdminComponent,
     DepartamentoComponent,
     TourComponent,
-    ItemsComponent
+    ItemsComponent,
+    AddDeptoComponent,
+    AddTourComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

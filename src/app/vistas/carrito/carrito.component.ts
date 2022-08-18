@@ -2,13 +2,14 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ServiceService } from 'src/app/servicios/service.service';
 //import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-declare var require: any;
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-carrito',
@@ -24,10 +25,10 @@ export class CarritoComponent implements OnInit {
   cantDepto: number = 0;
   cantTour: number = 0;
   total: number = 0;
-
+  user: any = [];
   logeado: boolean = false;
   valorLocal: any = null;
-
+  idUsuario: any = null;
   todayDate: string = new Date().toLocaleDateString();
 
   usuario = {
@@ -41,7 +42,9 @@ export class CarritoComponent implements OnInit {
     celular: null,
     email: null,
     password: null
-  }
+  };
+
+  
 
   formularioOk: boolean = false;
   classBoton = "btn-primary disabled";
@@ -51,19 +54,22 @@ export class CarritoComponent implements OnInit {
   constructor(private sS: ServiceService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    let tmpUser = undefined;
     this.valorLocal = localStorage.getItem('token');
+    this.idUsuario = localStorage.getItem('userId');
     console.log('valor de local Storage' + this.valorLocal)
     if (this.valorLocal == "LOGGED_IN") {
       this.logeado = true;
+      this.cargarUsuario(this.idUsuario);
+      
     } else {
       this.logeado = false;
     }
     this.cargarCarrito();
-
   }
 
   cargarCarrito() {
-    return this.sS.getReservas().subscribe((data: {}) => {
+    return this.sS.getCarritos().subscribe((data: {}) => {
       this.allDatos = data;
       console.log(this.allDatos);
       for (let i = 0; i < this.allDatos.length; i++) {
@@ -80,15 +86,35 @@ export class CarritoComponent implements OnInit {
   }
 
   eliminar(id: any) {
-    this.sS.eliminaReserva(id).subscribe(() => this.cargarCarrito());
+    this.sS.eliminaCarrito(id).subscribe(() => this.cargarCarrito());
     this.toastr.success('Item eliminado con éxito', 'Eliminación');
     window.location.reload();
   }
 
 
   cargarSeleccion(id: any) {
-    return this.sS.getReserva(id).subscribe((data: {}) => {
+    return this.sS.getCarrito(id).subscribe((data: {}) => {
       this.item = data;
+    });
+  }
+
+  cargarUsuario(id: any){
+    let tmpUsuario: any = [];
+    return this.sS.getUsuarios().subscribe((data: {}) => {
+      tmpUsuario = data;
+      for (let i = 0; i < tmpUsuario.length; i++) {
+        if (tmpUsuario[i].id == id) {
+          this.usuario.rut = tmpUsuario[i].rut;
+          this.usuario.nombre = tmpUsuario[i].nombre;
+          this.usuario.apellido = tmpUsuario[i].apellido;
+          this.usuario.direccion = tmpUsuario[i].direccion;
+          this.usuario.comuna = tmpUsuario[i].comuna;
+          this.usuario.ciudad = tmpUsuario[i].ciudad;
+          this.usuario.email = tmpUsuario[i].email;
+          this.usuario.celular = tmpUsuario[i].celular;
+        }
+      }
+      console.log(this.usuario);
     });
   }
 

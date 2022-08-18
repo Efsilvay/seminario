@@ -21,15 +21,8 @@ export class DepartamentoComponent implements OnInit {
     detalle: "",
     valor: 0,
     cantidad: 1,
+    tipo: "Departamento"
   }
-
-  /*item = {
-    id: null,
-    titulo: null,
-    imagen: null,
-    detalle: null,
-    precio: null
-  }*/
 
   constructor(private sS:ServiceService, private http: HttpClient, private ngZone: NgZone,
     private router: Router,
@@ -55,7 +48,7 @@ export class DepartamentoComponent implements OnInit {
     this.departamento.detalle = detalle;
     this.departamento.valor = valor;
     console.log('valor a ingresar: ',this.departamento);
-    return this.sS.agregaReserva(this.departamento)
+    return this.sS.agregaCarrito(this.departamento)
     .subscribe(
       (datos: any) => {
         console.log('usuario ingresado con éxito', 'Confirmación');

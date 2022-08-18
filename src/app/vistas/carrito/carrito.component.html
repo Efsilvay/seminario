@@ -5,7 +5,7 @@
                 <div class="myform form ">
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
-                            <h1>Reservas</h1>
+                            <h1>Carrito</h1>
                         </div>
                         <div class="row">
                             <div class="col-6">
@@ -149,36 +149,128 @@
 
 
 
-<div class="container" id="pdfTable" #pdfTable style="display: none;">
-    <div class="row">
-        <div class="col-6">
-            <div id="divItems" class="panel-heading">
-                <h3 class="panel-title">Comprobante de Compra</h3>
-            </div>
-            <hr>
-            <div class="row" *ngFor="let a of allDatos">
-
-                <div class="card mb-3" style="max-width: 540px;">
-
-                    <div class="row g-0">
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h6 class="card-title">{{a.id}}) {{a.titulo}} - precio unitario: ${{a.valor | number}}
-                                    cantidad: {{a.cantidad}} total: {{a.valor*a.cantidad | number}}</h6>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div id="divTotal" class="panel-heading">
-                <hr>
-                <h5 class="panel-title">Total ${{total | number}}</h5>
-                <h5 class="panel-title">Fecha de Compra: {{todayDate}}</h5>
-            </div>
-        </div>
+<div id="pdfTable" #pdfTable style="width: 1000px; display: none;">
+    <table style="width: 1000px; border-color: #fff;">
+        <tr>
+            <td colspan="4" style="text-align: center;"><strong>Comprobante de Compra</strong></td>
+        </tr>
+        <tr>
+            <td rowspan=3 width=350px>Insert image here</td>
+            <td width=100px></td>
+            <td width=225px></td>
+            <td width=225px></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align=right>icono</td>
+            <td>fecha</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align=right>N° Boleta:</td>
+            <td>#</td>
+        </tr>
+        <tr>
+            <td>Turismo Relax</td>
+            <td></td>
+            <td align=right>{{usuario.nombre}}</td>
+            <td>{{usuario.apellido}}</td>
+        </tr>
+        <tr>
+            <td>contacto@turismorelax.cl</td>
+            <td></td>
+            <td></td>
+            <td>{{usuario.email}}</td>
+        </tr>
+        <tr>
+            <td>Concepción, Chile</td>
+            <td></td>
+            <td></td>
+            <td>+56954429630</td>
+        </tr>
+        <tr>
+            <td>Chile</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>turismorelax.cl</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <br />
+    <div>
+        <strong>Comprobante de Compra</strong>
+        <br>
+        <span class="float-left"> <strong> Fecha:</strong> {{todayDate}}</span>
+        <span class="float-right"> <strong> Estado:</strong> Pagado</span>
     </div>
+    <div>
+        <div class="row">
+            <div class="col-6">
+                <div>
+                    <strong>Cliente</strong>
+                </div>
+                <div>{{usuario.nombre}} {{usuario.apellido}}</div>
+                <div>Dirección: {{usuario.direccion}}, {{usuario.comuna}}, {{usuario.ciudad}} </div>
+                <div>Email: {{usuario.email}}</div>
+                <div>Phone: {{usuario.celular}}</div>
+            </div>
+        </div>
+
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="center">#</th>
+                        <th>Item</th>
+                        <th>Tipo</th>
+                        <th class="right">Unidades</th>
+                        <th class="center">Cantidad</th>
+                        <th class="right">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of allDatos">
+                        <td class="center">{{a.id}}</td>
+                        <td class="left strong">{{a.titulo}}</td>
+                        <td class="left">{{a.tipo}}</td>
+                        <td class="right">${{a.valor | number}}</td>
+                        <td class="center">{{a.cantidad}}</td>
+                        <td class="right">${{a.valor*a.cantidad | number}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-5">
+
+            </div>
+
+            <div class="col-lg-4 col-sm-5 ml-auto">
+                <table class="table table-clear">
+                    <tbody>
+                        <tr>
+                            <td class="left">
+                                <strong>Total</strong>
+                            </td>
+                            <td class="right">
+                                <strong>$${{total | number}}</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 </div>

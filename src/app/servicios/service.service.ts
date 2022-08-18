@@ -15,8 +15,8 @@ export class ServiceService {
     return this.http.get<Array<Usuarios>>(environment.rest.usuarios);
   }
 
-  getUsuario(id: any) : Observable<Usuarios>{
-    return this.http.get<Usuarios>(`${environment.rest.usuarios}/${id}`);
+  getUsuario(id: any){
+    return this.http.get<Array<Usuarios>>(`${environment.rest.usuarios}/${id}`);
   }
 
   agregaUsuario(body: any) {
@@ -31,12 +31,28 @@ export class ServiceService {
     return this.http.delete<Usuarios>(`${environment.rest.usuarios}/${id}`);
   }
 
+  agregaDepartamento(body: any) {
+    return this.http.post<Departamentos>(environment.rest.departamentos, body);
+  }
+
   getDepartamentos(){
     return this.http.get<Array<Departamentos>>(environment.rest.departamentos);
   }
 
   getDepartamento(id: any){
     return this.http.get<Array<Departamentos>>(`${environment.rest.departamentos}/${id}`);
+  }
+
+  editaDepartamento(body: any){
+    return this.http.put<Array<Departamentos>>(`${environment.rest.departamentos}/${body.id}`,body);
+  }
+
+  eliminaDepartamento(id: any){
+    return this.http.delete<Departamentos>(`${environment.rest.departamentos}/${id}`);
+  }
+
+  agregaTour(body: any) {
+    return this.http.post<Tours>(environment.rest.tours, body);
   }
 
   getTours(){
@@ -47,25 +63,33 @@ export class ServiceService {
     return this.http.get<Array<Tours>>(`${environment.rest.tours}/${id}`);
   }
 
-  getReserva(id: any){
-    return this.http.get<Array<any>>(`${environment.rest.reservas}/${id}`);
+  editaTour(body: any){
+    return this.http.put<Array<Tours>>(`${environment.rest.tours}/${body.id}`,body);
   }
 
-  getReservas(){
-    return this.http.get<Array<Carro>>(environment.rest.reservas);
+  eliminaTour(id: any){
+    return this.http.delete<Tours>(`${environment.rest.tours}/${id}`);
   }
 
-  editaReserva(body:any){
-    return this.http.put<Array<Carro>>(`${environment.rest.reservas}/${body.id}`,body);
+  getCarrito(id: any){
+    return this.http.get<Array<any>>(`${environment.rest.carrito}/${id}`);
   }
 
-  agregaReserva(body: any) {
+  getCarritos(){
+    return this.http.get<Array<Carro>>(environment.rest.carrito);
+  }
+
+  editaCarrito(body:any){
+    return this.http.put<Array<Carro>>(`${environment.rest.carrito}/${body.id}`,body);
+  }
+
+  agregaCarrito(body: any) {
     console.log('recibido: ', body)
-    return this.http.post<Carro>(environment.rest.reservas, body); 
+    return this.http.post<Carro>(environment.rest.carrito, body); 
   }
 
-  eliminaReserva(id: any): Observable<Carro>{
-    return this.http.delete<Carro>(`${environment.rest.reservas}/${id}`);
+  eliminaCarrito(id: any): Observable<Carro>{
+    return this.http.delete<Carro>(`${environment.rest.carrito}/${id}`);
   }
 
   getVenta(id: any){

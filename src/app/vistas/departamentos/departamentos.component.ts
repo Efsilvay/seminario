@@ -19,7 +19,8 @@ export class DepartamentosComponent implements OnInit {
     imagen: "",
     detalle: "",
     valor: 0,
-    cantidad: 1
+    cantidad: 1,
+    tipo: "Departamento"
   }
 
   constructor(private sS:ServiceService, private router: Router) { }
@@ -46,7 +47,7 @@ export class DepartamentosComponent implements OnInit {
     this.departamento.detalle = detalle;
     this.departamento.valor = valor;
     console.log('valor a ingresar: ',this.departamento);
-    return this.sS.agregaReserva(this.departamento)
+    return this.sS.agregaCarrito(this.departamento)
     .subscribe(
       (datos: any) => {
         console.log('usuario ingresado con éxito', 'Confirmación');
