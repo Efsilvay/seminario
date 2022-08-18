@@ -97,20 +97,20 @@ export class ServiceService {
   }
 
   getVentas(){
-    return this.http.get<Array<Carro>>(environment.rest.ventas);
+    return this.http.get<Array<Venta>>(environment.rest.ventas);
   }
 
   editaVenta(body:any){
-    return this.http.put<Array<Carro>>(`${environment.rest.ventas}/${body.id}`,body);
+    return this.http.put<Array<Venta>>(`${environment.rest.ventas}/${body.id}`,body);
   }
 
   agregaVenta(body: any) {
     console.log('recibido: ', body)
-    return this.http.post<Carro>(environment.rest.ventas, body); 
+    return this.http.post<Venta>(environment.rest.ventas, body); 
   }
 
   eliminaVenta(id: any): Observable<Carro>{
-    return this.http.delete<Carro>(`${environment.rest.ventas}/${id}`);
+    return this.http.delete<Venta>(`${environment.rest.ventas}/${id}`);
   }
 
 
@@ -175,8 +175,30 @@ export interface Tours {
 
 export interface Carro {
   id?: number,
-  item: string,
-  valor:number,
-  ingredientes:string,
-  imagen: string
+  rut: string,
+  nombre: string,
+  apellido: string,
+  direccion: string,
+  comuna: string,
+  ciudad: string,
+  celular: number,
+  email: string,
+  fechaVenta: string,
+  pagado: number,
+  items: any
+}
+
+export interface Venta {
+  id?: number,
+  rut: string,
+  nombre: string,
+  apellido: string,
+  direccion: string,
+  comuna: string,
+  ciudad: string,
+  celular: number,
+  email: string,
+  fechaVenta: string,
+  pagado: number,
+  items: any
 }

@@ -129,58 +129,6 @@
       "id": 3
     }
   ],
-  "carrito": [
-    {
-      "depto": false,
-      "tour": true,
-      "titulo": "Recorrido por el Valle de Elqui",
-      "imagen": "elqui",
-      "detalle": "Duración: 8 Hrs.",
-      "valor": 70188,
-      "fecha": "30-05-2022",
-      "cantidad": 1,
-      "dias": 1,
-      "tipo": "Tour",
-      "id": 1
-    }
-  ],
-  "ventas": [
-    {
-      "rut": 156038822,
-      "nombre": "Emilio",
-      "apellido": "Silva",
-      "telefono": "964 96 66 78",
-      "celular": "964966678",
-      "email": "efsilvay@gmail.com",
-      "fechaVenta": "11-05-2022",
-      "pagado": 70188,
-      "items": [
-        {
-          "depto": false,
-          "tour": true,
-          "titulo": "Recorrido por el Valle de Elqui",
-          "imagen": "elqui",
-          "detalle": "Duración: 8 Hrs.",
-          "valor": 70188,
-          "fecha": "30-05-2022",
-          "cantidad": 1,
-          "dias": 1,
-          "id": 1
-        },
-        {
-          "depto": false,
-          "tour": true,
-          "titulo": "Recorrido 2",
-          "imagen": "elqui",
-          "detalle": "Duración: 8 Hrs.",
-          "valor": 70188,
-          "fecha": "30-05-2022",
-          "cantidad": 1,
-          "dias": 1,
-          "id": 2
-        }
-      ],
-      "id": 1
-    }
-  ]
+  "carrito": [],
+  "ventas": []
 }

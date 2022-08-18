@@ -57,7 +57,7 @@ export class DepartamentoComponent implements OnInit {
       (err: any) => {
         console.log('Hubo un error en el envío, favor intentar nuevamente', 'Error');
       }
-    );;
+    );
   }
 
 }

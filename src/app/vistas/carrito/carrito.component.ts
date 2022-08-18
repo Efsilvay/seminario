@@ -41,10 +41,22 @@ export class CarritoComponent implements OnInit {
     telefono: null,
     celular: null,
     email: null,
-    password: null
   };
 
-  
+  venta = {
+    rut: null,
+    nombre: null,
+    apellido: null,
+    direccion: null,
+    comuna: null,
+    ciudad: null,
+    telefono: null,
+    celular: null,
+    email: null,
+    items: [],
+    fechaVenta: 'null',
+    pagado: 0
+  }
 
   formularioOk: boolean = false;
   classBoton = "btn-primary disabled";
@@ -119,11 +131,33 @@ export class CarritoComponent implements OnInit {
   }
 
   downloadAsPDF() {
+    this.venta.rut = this.usuario.rut;
+    this.venta.nombre = this.usuario.nombre;
+    this.venta.apellido = this.usuario.apellido;
+    this.venta.email = this.usuario.email;
+    this.venta.direccion = this.usuario.direccion;
+    this.venta.comuna = this.usuario.comuna;
+    this.venta.ciudad = this.usuario.ciudad;
+    this.venta.celular = this.usuario.celular;
+    this.venta.fechaVenta = new Date().toLocaleDateString();
+    this.venta.items = this.allDatos;
+    this.venta.pagado = this.total;
+    console.log('esta venta: ', this.venta);
+    
     const pdfTable = this.pdfTable.nativeElement;
     let html = htmlToPdfmake(pdfTable.innerHTML);
     const documentDefinition = { content: html };
+    
     pdfMake.createPdf(documentDefinition).download();
-
+    return this.sS.agregaVenta(this.venta)
+    .subscribe(
+      (datos: any) => {
+        console.log('venta ingresado con éxito', 'Confirmación');
+      },
+      (err: any) => {
+        console.log('Hubo un error en el envío, favor intentar nuevamente', 'Error');
+      }
+    );
   }
 
   validaFormulario(value: any, tipo: string) {
