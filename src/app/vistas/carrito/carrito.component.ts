@@ -204,7 +204,8 @@ export class CarritoComponent implements OnInit {
       this.venta.email= null;
       this.venta.items= [];
       this.venta.fechaVenta= 'null';
-      this.venta.pagado= 0
+      this.venta.pagado= 0;
+      window.location.reload();
   }
 
   registrar(form: NgForm) {

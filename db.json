@@ -130,5 +130,73 @@
     }
   ],
   "carrito": [],
-  "ventas": []
+  "ventas": [
+    {
+      "rut": 156038822,
+      "nombre": "Emilio",
+      "apellido": "Silva",
+      "direccion": "Calle 2",
+      "comuna": "Chiguayante",
+      "ciudad": "Concepcion",
+      "telefono": null,
+      "celular": "964966678",
+      "email": "miloshka@gmail.com",
+      "items": [
+        {
+          "depto": true,
+          "tour": false,
+          "titulo": "Edificio Step",
+          "imagen": "depto1",
+          "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+          "valor": 20000,
+          "cantidad": 1,
+          "tipo": "Departamento",
+          "id": 1
+        }
+      ],
+      "fechaVenta": "18-08-2022",
+      "pagado": 20000,
+      "id": 1
+    },
+    {
+      "rut": 156038822,
+      "nombre": "Emilio",
+      "apellido": "Silva",
+      "direccion": "Calle 2",
+      "comuna": "Chiguayante",
+      "ciudad": "Concepcion",
+      "telefono": null,
+      "celular": "964966678",
+      "email": "miloshka@gmail.com",
+      "items": [
+        {
+          "depto": true,
+          "tour": false,
+          "titulo": "Edificio Step",
+          "imagen": "depto1",
+          "detalle": "Piso 6 - 2 Dorm - 1 Baño",
+          "valor": 20000,
+          "cantidad": 1,
+          "tipo": "Departamento",
+          "id": 1
+        },
+        {
+          "depto": false,
+          "tour": true,
+          "titulo": "Geysers del Tatio",
+          "imagen": "geyser",
+          "detalle": "Duración: 7 Hrs.",
+          "valor": 33151,
+          "fecha": "30-05-2022",
+          "cantidad": 1,
+          "dias": 1,
+          "tipo": "Tour",
+          "id": 2
+        }
+      ],
+      "fechaVenta": "18-08-2022",
+      "pagado": 53151,
+      "id": 2
+    }
+  ]
 }
