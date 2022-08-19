@@ -29,6 +29,9 @@ import { ItemsComponent } from './vistas/admin/items/items.component';
 import { AddDeptoComponent } from './vistas/admin/add-depto/add-depto.component';
 import { AddTourComponent } from './vistas/admin/add-tour/add-tour.component';
 import { AddUserComponent } from './vistas/admin/add-user/add-user.component';
+import { EditUserComponent } from './vistas/admin/edit-user/edit-user.component';
+
+import { CustomTypeUser } from './shared/pipes/customTypeUser';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,9 @@ import { AddUserComponent } from './vistas/admin/add-user/add-user.component';
     ItemsComponent,
     AddDeptoComponent,
     AddTourComponent,
-    AddUserComponent
+    AddUserComponent,
+    EditUserComponent,
+    CustomTypeUser
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,9 @@ export class AdminComponent implements OnInit {
   newDepartamento: boolean = false;
   newtours: boolean = false;
   newUsuario: boolean = false;
+  editUsuario: boolean = false;
+
+  usuarioTmp: string = ''
 
   constructor(private sS: ServiceService, private toastr: ToastrService) { }
 
@@ -39,6 +42,7 @@ export class AdminComponent implements OnInit {
       this.newDepartamento = false;
       this.newtours = false;
       this.newUsuario = false;
+      this.editUsuario = false;
     });
   }
 
@@ -53,6 +57,7 @@ export class AdminComponent implements OnInit {
       this.newDepartamento = false;
       this.newtours = false;
       this.newUsuario = false;
+      this.editUsuario = false;
     });
   }
 
@@ -67,6 +72,7 @@ export class AdminComponent implements OnInit {
       this.newDepartamento = false;
       this.newtours = false;
       this.newUsuario = false;
+      this.editUsuario = false;
     });
 
   }
@@ -82,6 +88,7 @@ export class AdminComponent implements OnInit {
       this.newDepartamento = false;
       this.newtours = false;
       this.newUsuario = false;
+      this.editUsuario = false;
     });
   }
 
@@ -93,6 +100,7 @@ export class AdminComponent implements OnInit {
     this.showTours = false;
     this.showCompras = false;
     this.showUsuarios =false;
+    this.editUsuario = false;
   }
 
   newTour(){
@@ -103,6 +111,7 @@ export class AdminComponent implements OnInit {
     this.showTours = false;
     this.showCompras = false;
     this.showUsuarios =false;
+    this.editUsuario = false;
   }
 
   newUser(){
@@ -113,6 +122,18 @@ export class AdminComponent implements OnInit {
     this.showTours = false;
     this.showCompras = false;
     this.showUsuarios =false;
+    this.editUsuario = false;
+  }
+
+  editUser(){
+    this.newDepartamento = false;
+    this.newtours = false;
+    this.newUsuario = false;
+    this.showArriendos = false;
+    this.showTours = false;
+    this.showCompras = false;
+    this.showUsuarios =false;
+    this.editUsuario = true;
   }
 
   editarDepto(id: any){
@@ -145,6 +166,10 @@ export class AdminComponent implements OnInit {
 
   editarUsuario(id: any){
 
+    this.editUser();
+    this.usuarioTmp = id;
+    console.log('usuario a editar:', id);
+    
   }
 
   eliminarUsuario(id: any){

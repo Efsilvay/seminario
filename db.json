@@ -1,6 +1,7 @@
 {
   "usuarios": [
     {
+      "id": 1,
       "rut": 156038822,
       "nombre": "Emilio",
       "apellido": "Silva",
@@ -11,8 +12,7 @@
       "celular": "964966678",
       "email": "efsilvay@gmail.com",
       "password": "12345",
-      "rol": "2",
-      "id": 1
+      "rol": "2"
     },
     {
       "rut": 156038822,
@@ -43,6 +43,7 @@
       "id": 3
     },
     {
+      "id": 4,
       "rut": 139536606,
       "nombre": "Ruben",
       "apellido": "Osses Ortiz",
@@ -53,7 +54,7 @@
       "celular": "962265210",
       "email": "ruben.osses@icloud.com",
       "password": "123456",
-      "id": 4
+      "rol": "2"
     }
   ],
   "departamentos": [
