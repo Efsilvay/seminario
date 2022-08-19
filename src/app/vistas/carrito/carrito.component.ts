@@ -154,6 +154,7 @@ export class CarritoComponent implements OnInit {
       (datos: any) => {
         console.log('venta ingresado con éxito', 'Confirmación');
         this.deleteAllPosts();
+        this.limpiarVenta();
       },
       (err: any) => {
         console.log('Hubo un error en el envío, favor intentar nuevamente', 'Error');
