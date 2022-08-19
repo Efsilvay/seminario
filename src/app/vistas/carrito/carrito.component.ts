@@ -191,6 +191,21 @@ export class CarritoComponent implements OnInit {
     this.formularioOk = false;
   }
 
+  limpiarVenta(){
+      this.venta.rut= null;
+      this.venta.nombre= null;
+      this.venta.apellido= null;
+      this.venta.direccion= null;
+      this.venta.comuna= null;
+      this.venta.ciudad= null;
+      this.venta.telefono= null;
+      this.venta.celular= null;
+      this.venta.email= null;
+      this.venta.items= [];
+      this.venta.fechaVenta= 'null';
+      this.venta.pagado= 0
+  }
+
   registrar(form: NgForm) {
 
     if (form.valid && this.formularioOk == true) {
