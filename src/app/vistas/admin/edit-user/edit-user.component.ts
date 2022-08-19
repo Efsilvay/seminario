@@ -29,15 +29,16 @@ export class EditUserComponent implements OnInit {
 
   cargando: boolean = false
   msg: string = ""
-  formularioOk: boolean = false;
-  classBoton = "btn-primary disabled"
-
+  formularioOk: boolean = true;
+  classBoton = "btn-primary"
+  finalizado: boolean = false;
   
   public registerForm: FormGroup;
 
   constructor(private sS: ServiceService) { }
 
   ngOnInit() {
+    this.finalizado = false;
     console.log('idusuario', this.user)
     this.cargarUsuario(this.user);
     this.registerForm = new FormGroup({
@@ -52,23 +53,8 @@ export class EditUserComponent implements OnInit {
 
   validaFormulario(value: any, tipo: string) {
 
-    if (
-      (this.usuario.rut !== null) &&
-      (this.usuario.nombre !== null) &&
-      (this.usuario.apellido !== null) &&
-      (this.usuario.direccion !== null) &&
-      (this.usuario.comuna !== null) &&
-      (this.usuario.ciudad !== null) &&
-      (this.usuario.telefono !== null) &&
-      (this.usuario.celular !== null) &&
-      (this.usuario.email !== null) &&
-      (this.usuario.password !== null)
-    ) {
-      this.classBoton = "btn-primary";
-      this.formularioOk = true;
-    } else {
-      this.classBoton = "btn-primary disabled";
-    }
+    this.classBoton = "btn-primary";
+    this.formularioOk = true;
     console.log('datos:', this.usuario)
     console.log('formulario ok: ', this.formularioOk)
   }
@@ -96,15 +82,18 @@ export class EditUserComponent implements OnInit {
       .subscribe(
         (datos) => {
           this.cargando = true;
+          this.finalizado = true;
           console.log('usuario ingresado con éxito', 'Confirmación');
         },
         (err) => {
           this.cargando = false;
+          this.finalizado = false;
           console.log('Hubo un error en el envío, favor intentar nuevamente', 'Error');
         }
       );
       this.limpiarFormulario();
     }
+    
   }
 
   cargarUsuario(id: any){

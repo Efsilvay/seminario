@@ -24,17 +24,19 @@ export class AddUserComponent implements OnInit {
     rol: "2"
   }
 
-  cargando: boolean = false
-  msg: string = ""
+  cargando: boolean = false;
+  msg: string = "";
   formularioOk: boolean = false;
-  classBoton = "btn-primary disabled"
+  classBoton = "btn-primary disabled";
 
+  finalizado: boolean = false;
   
   public registerForm: FormGroup;
 
   constructor(private sS: ServiceService) { }
 
   ngOnInit() {
+    this.finalizado = false;
     this.registerForm = new FormGroup({
       nombre: new FormControl(null, Validators.required),
       apellido: new FormControl(null, Validators.required),
@@ -100,15 +102,18 @@ export class AddUserComponent implements OnInit {
       .subscribe(
         (datos) => {
           this.cargando = true;
+          this.finalizado = true;
           console.log('usuario ingresado con éxito', 'Confirmación');
         },
         (err) => {
           this.cargando = false;
+          this.finalizado = false;
           console.log('Hubo un error en el envío, favor intentar nuevamente', 'Error');
         }
       );
       this.limpiarFormulario();
     }
+    
   }
 
 }
