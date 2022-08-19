@@ -100,7 +100,7 @@ export class CarritoComponent implements OnInit {
   eliminar(id: any) {
     this.sS.eliminaCarrito(id).subscribe(() => this.cargarCarrito());
     this.toastr.success('Item eliminado con éxito', 'Eliminación');
-    window.location.reload();
+    //window.location.reload();
   }
 
 
@@ -153,6 +153,7 @@ export class CarritoComponent implements OnInit {
     .subscribe(
       (datos: any) => {
         console.log('venta ingresado con éxito', 'Confirmación');
+        this.deleteAllPosts();
       },
       (err: any) => {
         console.log('Hubo un error en el envío, favor intentar nuevamente', 'Error');
@@ -207,4 +208,9 @@ export class CarritoComponent implements OnInit {
       this.limpiarFormulario();
     }
   }
+
+  deleteAllPosts(){
+    const postsIdsArray = this.allDatos.map((post: any) => post.id);
+    postsIdsArray.forEach((id: any) => this.eliminar(id));
+ }
 }
